@@ -14,7 +14,7 @@ const orderRoutes = require("./src/routes/orderRoutes");
 
 dotenv.config();
 const app = express();
-
+console.log("refresh");
 // Middleware
 app.use(express.json());
 app.use(cors());
