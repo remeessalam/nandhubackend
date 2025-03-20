@@ -1,5 +1,4 @@
 const serverless = require("serverless-http");
-
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -15,6 +14,7 @@ const orderRoutes = require("./src/routes/orderRoutes");
 dotenv.config();
 const app = express();
 console.log("refresh");
+
 // Middleware
 app.use(express.json());
 app.use(cors());
@@ -35,7 +35,5 @@ app.use("/api/health", (req, res) => {
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5050;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
+// Export as a serverless function
 module.exports.handler = serverless(app);
