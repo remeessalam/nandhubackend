@@ -1,4 +1,4 @@
-const serverless = require("serverless-http");
+// const serverless = require("serverless-http");
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -36,4 +36,4 @@ app.use("/api/health", (req, res) => {
 app.use(errorHandler);
 
 // Export as a serverless function
-module.exports.handler = serverless(app);
+// module.exports.handler = serverless(app);
