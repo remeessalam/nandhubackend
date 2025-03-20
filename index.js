@@ -1,4 +1,4 @@
-// const serverless = require("serverless-http");
+const serverless = require("serverless-http");
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -13,7 +13,7 @@ const orderRoutes = require("./src/routes/orderRoutes");
 
 dotenv.config();
 const app = express();
-console.log("refresh");
+console.log("MongoDB Connected");
 
 // Middleware
 app.use(express.json());
@@ -30,10 +30,10 @@ app.use("/api/products", productsRoutes);
 app.use("/api/orders", orderRoutes);
 
 app.use("/api/health", (req, res) => {
-  res.send("health ok.");
+  res.send("Health OK.");
 });
 
 app.use(errorHandler);
 
-// Export as a serverless function
-// module.exports.handler = serverless(app);
+// Export the app for serverless
+module.exports.handler = serverless(app);
